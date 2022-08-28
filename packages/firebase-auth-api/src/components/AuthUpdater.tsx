@@ -51,7 +51,7 @@ const AuthUpdater = () => {
     // Setup webworker for token refresher
     let worker = WebworkerLoader(tokenRefresher);
     worker.postMessage("Trigger Refresh WebWorker");
-    worker.onmessage = async (e: any) => {
+    worker.on("message", async (e: any) => {
       try {
         console.log("Webworker is refreshing the token");
         const token = await getNewIdToken();
@@ -65,7 +65,7 @@ const AuthUpdater = () => {
         console.error("An error has occured while trying to refresh ID token");
         console.log(e);
       }
-    };
+    });
   }, []);
   return null;
 };

@@ -1,3 +1,6 @@
+import { Blob } from "buffer";
+import { Worker } from "worker_threads";
+
 function WebworkerLoader(worker: () => void) {
   const code = worker.toString();
   const blob = new Blob(["(" + code + ")()"]);
