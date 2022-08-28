@@ -10,7 +10,12 @@
   },
   "dependencies": {
     "airtable-api": "workspace:^1.0.0",
+    "axios": "^0.27.2",
     "encoding": "^0.1.13",
+    "firebase": "^9.9.3",
+    "firebase-auth-api": "workspace:^1.0.0",
+    "framer-motion": "^7.2.1",
+    "jotai": "^1.8.1",
     "next": "12.2.5",
     "postcss": "^8.4.16",
     "postcss-preset-env": "^7.8.0",

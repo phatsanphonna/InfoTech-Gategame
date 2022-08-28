@@ -1,0 +1,32 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Azure Functions webpack sample for the Serverless framework using Typescript",
+  "scripts": {
+    "test": "echo \"No tests yet...\"",
+    "start": "func host start",
+    "dev": "serverless offline"
+  },
+  "keywords": [
+    "azure",
+    "serverless"
+  ],
+  "dependencies": {
+    "azure-functions-core-tools": "3",
+    "dotenv": "^16.0.1",
+    "firebase-admin": "^11.0.1",
+    "mongoose": "^6.5.3",
+    "serverless": "3"
+  },
+  "devDependencies": {
+    "@azure/functions": "^1.0.3",
+    "@types/node": "^13.1.8",
+    "fork-ts-checker-webpack-plugin": "^3.0.1",
+    "serverless-azure-functions": "^2.1.1",
+    "serverless-webpack": "^5.3.1",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.5",
+    "webpack": "^4.41.5",
+    "webpack-node-externals": "^1.7.2"
+  }
+}
