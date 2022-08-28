@@ -73,6 +73,7 @@ const Jobs: NextPage = () => {
               );
               return (
                 <JobCard
+                  status={record.fields["Status"]}
                   title={record.fields["Position Name"]}
                   collab={collabs}
                   key={record.id}

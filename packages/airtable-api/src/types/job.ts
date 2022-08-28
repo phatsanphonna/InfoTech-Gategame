@@ -1,6 +1,6 @@
 export interface Field {
   "Position Name": string;
-  status: string;
+  Status: string;
   "Name (from Undermanagement Di)"?: string[] | null;
   "Name (from Undermanagement MC)"?: string[] | null;
   "Name (from Undermanagement Producer)"?: string[] | null;
