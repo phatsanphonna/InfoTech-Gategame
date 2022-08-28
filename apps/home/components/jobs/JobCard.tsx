@@ -11,7 +11,7 @@ const JobCard: FC<Props> = ({ title, collab, description }) => {
     <div className="py-6 px-6 border-2 border-black dark:border-white rounded-lg flex flex-col w-4/5 md:w-3/4 lg:w-2/3 3xl:w-1/3">
       <h1 className="lg:text-3xl md:text-2xl text-xl font-semibold">{title}</h1>
       <h2 className="lg:text-lg md:text-sm">
-        Work with{" "}
+        {collab?.length ? <span>Work with </span> : null}
         <span className="text-blue-600 font-bold">
           {collab &&
             collab

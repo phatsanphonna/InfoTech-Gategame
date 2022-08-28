@@ -43,34 +43,45 @@ const Jobs: NextPage = () => {
               className="px-6 py-2 border-2 border-white rounded-lg inline-block bg-white text-black"
               target={"_blank"}
             >
-              สมัครเลย!
+              ยังไม่ได้สมัครเป็น Admin หรอ? สมัครเลย!
             </a>
           </Link>
         </div>
 
         <div className="flex flex-col items-center gap-y-8">
-          {jobs.records.map((record) => {
-            let collabs: string[] = [];
-            record.fields["Name (from Undermanagement Producer)"]?.forEach(
-              (pos) => {
-                collabs.push(pos);
-              }
-            );
-            record.fields["Name (from Undermanagement Di)"]?.forEach((pos) => {
-              collabs.push(pos);
-            });
-            record.fields["Name (from Undermanagement MC)"]?.forEach((pos) => {
-              collabs.push(pos);
-            });
-            return (
-              <JobCard
-                title={record.fields["Position Name"]}
-                collab={collabs}
-                key={record.id}
-                description={record.fields.Description}
-              />
-            );
-          })}
+          <div className="flex flex-col items-center gap-y-6">
+            <h1>
+              หากสนใจตำแหน่งไหน สามารถติดต่อ HR หรือถามลงในกลุ่มไลน์ได้เลย Agent
+              + Staff ได้เลย!
+            </h1>
+            {jobs.records.map((record) => {
+              let collabs: string[] = [];
+              record.fields["Name (from Undermanagement Producer)"]?.forEach(
+                (pos) => {
+                  collabs.push(pos);
+                }
+              );
+              record.fields["Name (from Undermanagement Di)"]?.forEach(
+                (pos) => {
+                  collabs.push(pos);
+                }
+              );
+              record.fields["Name (from Undermanagement MC)"]?.forEach(
+                (pos) => {
+                  collabs.push(pos);
+                }
+              );
+              return (
+                <JobCard
+                  title={record.fields["Position Name"]}
+                  collab={collabs}
+                  key={record.id}
+                  description={record.fields.Description}
+                />
+              );
+            })}
+          </div>
+          {!jobs.records.length && <h1>Loading!</h1>}
         </div>
         <footer className="grid place-items-center my-12">
           <span>Join our family and become staff today!</span>
