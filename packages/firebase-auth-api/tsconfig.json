@@ -7,25 +7,19 @@
     "forceConsistentCasingInFileNames": true,
     "inlineSources": false,
     "isolatedModules": true,
-    "moduleResolution": "node",
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "preserveWatchOutput": true,
     "strict": true,
     "outDir": "dist",
-    "baseUrl": ".",
+    "baseUrl": "src",
+    "lib": ["ES2015"],
+    "module": "ESNext",
     "paths": {
-      "@jotai/*": ["src/jotai/*"],
-      "@webworkers/*": ["src/webworkers/*"]
+      "@jotai/*": ["jotai/*"],
+      "@webworkers/*": ["webworkers/*"]
     }
   },
-  "exclude": [
-    "dist",
-    "build",
-    "**/node_modules",
-    "**/*.d.ts",
-    "node_modules",
-    ".pnpm",
-    "index.js"
-  ]
+  "include": ["./src"],
+  "exclude": ["dist", "build", "**/node_modules", "node_modules", ".pnpm"]
 }

@@ -4,8 +4,7 @@
   "description": "",
   "main": "dist/index.js",
   "exports": {
-    ".": "./dist",
-    "./types": "./dist/types/"
+    ".": "./dist"
   },
   "scripts": {
     "dev": "tsc --watch",

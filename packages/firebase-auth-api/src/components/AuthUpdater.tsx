@@ -6,11 +6,11 @@ import {
   firebaseToken,
   firebaseUserAtom,
   profileInfoAtom,
-} from "@jotai/store";
+} from "../jotai/store";
 import { useAtom } from "jotai";
 import axios from "axios";
-import WebworkerLoader from "@webworkers/loader";
-import tokenRefresher from "@webworkers/tokenRefresher";
+import WebworkerLoader from "../webworkers/loader";
+import tokenRefresher from "../webworkers/tokenRefresher";
 
 const AuthUpdater = () => {
   const [profile, setProfile] = useAtom(firebaseUserAtom);
@@ -51,7 +51,7 @@ const AuthUpdater = () => {
     // Setup webworker for token refresher
     let worker = WebworkerLoader(tokenRefresher);
     worker.postMessage("Trigger Refresh WebWorker");
-    worker.on("message", async (e: any) => {
+    worker.addEventListener("message", async (e: any) => {
       try {
         console.log("Webworker is refreshing the token");
         const token = await getNewIdToken();
@@ -70,4 +70,4 @@ const AuthUpdater = () => {
   return null;
 };
 
-export default AuthUpdater;
+export { AuthUpdater };

@@ -1,4 +1,4 @@
-import { firebaseReady, firebaseUserAtom } from "@jotai/store";
+import { firebaseReady, firebaseUserAtom } from "./jotai/store";
 import {
   createUserWithEmailAndPassword,
   getAuth,
@@ -13,7 +13,7 @@ import {
 import { useAtom } from "jotai";
 import { useRouter } from "next/router";
 import { FC, useEffect } from "react";
-import app from "./index";
+import app from "./app";
 
 export const auth = getAuth(app);
 
@@ -206,18 +206,23 @@ export const getNewIdToken = async (): Promise<string> => {
 
 let googleProvider: GoogleAuthProvider | null = null;
 
-export const signinWithGooglePopUp = () => {
+export const signinWithGooglePopUp = (
+  middleware: (user: User) => Promise<void>
+) => {
   if (!googleProvider) {
     googleProvider = new GoogleAuthProvider();
   }
   return new Promise(async (resolve, reject) => {
     if (!googleProvider) return reject("Fatal error");
     signInWithPopup(auth, googleProvider)
-      .then((result) => {
+      .then(async (result) => {
         const user = result.user;
+        if (middleware) await middleware(user);
+        console.log("Succesfully signed in");
         resolve(user);
       })
       .catch((err) => {
+        console.log("Failed to signin due to " + err);
         reject(err);
       });
   });

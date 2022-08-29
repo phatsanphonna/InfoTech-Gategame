@@ -1,5 +1,6 @@
 import { AzureFunction, Context, HttpRequest } from "@azure/functions";
 
+//@ts-ignore
 const dotenv = require("dotenv").config();
 
 const sayHello: AzureFunction = async function (
