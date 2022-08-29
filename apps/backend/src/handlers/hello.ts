@@ -10,9 +10,13 @@ const sayHello: AzureFunction = async function (
   context.log("Typescript HTTP trigger function processed a request.");
 
   if (req.query.name || req.body?.name) {
+    // console.log(ConfigurationManager.AppSettings["CustomSetting"]);
+
     context.res = {
       // status: 200, /* Defaults to 200 */
-      body: `Hello ${req.query.name || req.body.name}! ${process.env.test}`,
+      body: `Hello ${req.query.name || req.body.name}! ${
+        process.env.project_id
+      }`,
     };
   } else {
     context.res = {
