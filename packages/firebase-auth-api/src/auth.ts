@@ -92,7 +92,10 @@ export const handleRegisterWithEmail = async (
   });
 };
 
-// Async function which returns a promise | takes email and password to login the user in
+/**
+ * @description Async function which returns a promise | takes email and password to login the user in
+ *
+ */
 export const signinEmail = async (email: string, password: string) => {
   return new Promise((resolve, reject) => {
     try {
@@ -104,7 +107,12 @@ export const signinEmail = async (email: string, password: string) => {
   });
 };
 
-// Async function which returns promise | takes email and password to sign up the user
+/**
+// @description Async function which returns promise | takes email and password to sign up the user  
+ * @param email 
+ * @param password 
+ * @returns 
+ */
 export const signupEmail = async (email: string, password: string) => {
   return new Promise(async (resolve, reject) => {
     try {
@@ -118,6 +126,10 @@ export const signupEmail = async (email: string, password: string) => {
   });
 };
 
+/**
+ * @description Signout the user but can only be used as a function component in React
+ * @returns
+ */
 export const SignOutFC: FC = () => {
   const router = useRouter();
 
@@ -139,6 +151,10 @@ export const SignOutFC: FC = () => {
   return null;
 };
 
+/**
+ * @description Signout the firebase
+ * @returns
+ */
 export const SignOut = async () => {
   return new Promise(async (resolve, reject) => {
     try {
@@ -178,6 +194,10 @@ export const ConditionalRedirect: FC<{
   return null;
 };
 
+/**
+ * @description Get firebase token without force refreshing the token
+ * @returns
+ */
 export const getFirebaseToken = async (): Promise<string> => {
   return new Promise(async (resolve, reject) => {
     if (auth.currentUser) {
@@ -189,6 +209,10 @@ export const getFirebaseToken = async (): Promise<string> => {
   });
 };
 
+/**
+ * @description Get firebase token and force refreshing the token
+ * @returns
+ */
 export const getNewIdToken = async (): Promise<string> => {
   return new Promise(async (resolve, reject) => {
     try {
@@ -206,6 +230,11 @@ export const getNewIdToken = async (): Promise<string> => {
 
 let googleProvider: GoogleAuthProvider | null = null;
 
+/**
+ * @description Sign in using google authentication
+ * @param middleware
+ * @returns
+ */
 export const signinWithGooglePopUp = (
   middleware: (user: User) => Promise<void>
 ) => {
