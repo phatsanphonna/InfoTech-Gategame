@@ -28,3 +28,34 @@ a {
     background: black;
   }
 }
+
+@font-face {
+  font-family: 'sd-rangver';
+  src: url('../fonts/sd\ rangver\ V.1.ttf');
+}
+
+@font-face {
+  font-family: 'buggy';
+  src: url('../fonts/Buggy.ttf');
+}
+
+h1, h2 {
+  font-family: 'sd-rangver';
+}
+
+h1 {
+  @apply text-6xl lg:text-9xl;
+}
+
+h2 {
+  @apply text-3xl lg:text-6xl;
+}
+
+h6 {
+  font-family: 'buggy';
+  @apply text-base lg:text-lg;
+}
+
+p {
+  font-family: Tahoma;
+}
